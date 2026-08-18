@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Secure realtime chat"
+    >
+
+    <title>SecureChat</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- AUTH SCREEN -->
+
+    <section id="authScreen" class="screen">
+
+        <div class="auth-card">
+
+            <h1>SecureChat</h1>
+
+            <p class="subtitle">
+                Realtime messaging
+            </p>
+
+            <!-- LOGIN -->
+
+            <form id="loginForm">
+
+                <h2>Login</h2>
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="Email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    minlength="8"
+                    maxlength="72"
+                    required
+                >
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+
+            <div class="separator">
+                OR
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <form id="registerForm">
+
+                <h2>Create account</h2>
+
+                <input
+                    id="registerUsername"
+                    type="text"
+                    placeholder="Username"
+                    autocomplete="username"
+                    minlength="3"
+                    maxlength="20"
+                    pattern="[A-Za-z0-9_]{3,20}"
+                    required
+                >
+
+                <small>
+                    3-20 characters: letters, numbers and _
+                </small>
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="Email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="72"
+                    required
+                >
+
+                <button type="submit">
+                    Create account
+                </button>
+
+            </form>
+
+
+            <button
+                id="forgotPassword"
+                class="link-button"
+                type="button"
+            >
+                Forgot password?
+            </button>
+
+
+            <div id="authMessage" class="status"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAT SCREEN -->
+
+    <section id="chatScreen" class="screen hidden">
+
+        <header class="chat-header">
+
+            <div>
+                <h1>SecureChat</h1>
+
+                <span id="currentUser">
+                    Loading...
+                </span>
+            </div>
+
+            <button
+                id="logoutButton"
+                class="logout"
+            >
+                Logout
+            </button>
+
+        </header>
+
+
+        <main
+            id="messages"
+            class="messages"
+            aria-live="polite"
+        >
+        </main>
+
+
+        <div
+            id="chatStatus"
+            class="chat-status"
+        >
+        </div>
+
+
+        <form
+            id="messageForm"
+            class="message-form"
+        >
+
+            <input
+                id="messageInput"
+                type="text"
+                placeholder="Type a message..."
+                maxlength="1000"
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">
+                Send
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
+
+
+<!-- Supabase JavaScript client -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
